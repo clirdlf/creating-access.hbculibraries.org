@@ -135,12 +135,13 @@ eleventyNavigation:
                 {%- for post in collections.post -%}
                     <div class="illdy-blog-post col-md-4 col-sm-6 col-xs-12">
                         <div class="post" style="">
-							<div class="post-image" style="background-image: url('https://creating-access.hbculibraries.org/wp-content/uploads/sites/37/2020/11/suam_1259_full-250x213.jpg');"></div>
+                            {%- set post_image = ['/assets/images/', post.data.image] | join  %}
+							<div class="post-image" style="background-image: url('{{post_image | url}}');"></div>
                         <h5>
                             <a href="{{ post.url }}" class="post-title">{{ post.data.title }} </a>
                         </h5>
                         <div class="post-entry">
-							{{ post.data.date }}—&nbsp;A new report from CLIR and the HBCU Library Alliance explores the common barriers and shared visions for…									</div>
+							{{ post.data.date }}—&nbsp;{% excerpt post %}</div>
                         <!--/.post-entry-->
                         <a href="{{ post.title }}" class="post-button">
                             <i class="fa fa-chevron-circle-right"></i>Read more</a>

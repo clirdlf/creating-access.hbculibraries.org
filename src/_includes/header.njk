@@ -1,0 +1,32 @@
+{%- set image_path = ["/assets/images/", image] | join  %}
+
+<header id="header" class="header-front-page" style="background-image: url({{image_path }});background-attachment: fixed;">
+    {% include 'navigation.njk' %}
+    <div class="bottom-header front-page">
+        <div class="container">
+            <div class="row opaque-background">
+
+                <div class="col-sm-12">
+                    <h1></h1>
+                    <h1>{{ title }}<span class="span-dot">.</span></h1>
+                </div>
+                <!--/.col-sm-12-->
+                <div class="col-sm-8 col-sm-offset-2"></div>
+                <!--/.col-sm-8.col-sm-offset-2-->
+                <div class="col-sm-8 col-sm-offset-2">
+
+                    <div class="section-citation">
+                        <a href="https://hbcudigitallibrary.auctr.edu/digital/collection/ssld/id/26/rec/8" target="_blank" rel="noopener noreferrer">
+                            <em>First Honor Students</em>
+                        </a>, Unknown Photographer, 1968, Silver Gelatin. Courtesy of Southern University at Shreveport Library (LA).          </div>
+
+                </div>
+            </div>
+            <!--/.row-->
+
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.bottom-header.front-page-->
+
+</header>

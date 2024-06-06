@@ -9,7 +9,28 @@ const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite')
 
 const rollupPluginCritical = require('rollup-plugin-critical').default
 
-const { resolve } = require('path')
+const { resolve } = require('path');
+
+const striptags = require("striptags");
+
+function extractExcerpt(article) {
+	if (!article.hasOwnProperty("templateContent")) {
+	  console.warn(
+		'Failed to extract excerpt: Document has no property "templateContent".'
+	  );
+	  return null;
+	}
+  
+	let excerpt = null;
+	const content = article.templateContent;
+  
+	excerpt = striptags(content)
+	  .substring(0, 200) // Cap at 200 characters
+	  .replace(/^\\s+|\\s+$|\\s+(?=\\s)/g, "")
+	  .trim()
+	  .concat("...");
+	return excerpt;
+  }
 
 module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(EleventyPluginNavigation)
@@ -76,8 +97,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	// Copy/pass-through files
-	eleventyConfig.addPassthroughCopy('src/assets/css')
-	eleventyConfig.addPassthroughCopy('src/assets/js')
+	eleventyConfig.addPassthroughCopy('src/assets/')
 
 	// filters
 
