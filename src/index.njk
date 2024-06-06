@@ -1,6 +1,11 @@
 ---
 title: 
 layout: base.njk
+image: ssld_26_full.jpg
+attribute: <a href="https://hbcudigitallibrary.auctr.edu/digital/collection/ssld/id/26/rec/8" target="_blank" rel="noopener noreferrer"><em>First Honor Students</em></a>, Unknown Photographer, 1968, Silver Gelatin. Courtesy of Southern University at Shreveport Library (LA).</div>
+eleventyNavigation:
+    key: Home
+    order: 1
 ---
 
 <div>
@@ -127,17 +132,17 @@ layout: base.njk
     <div class="section-content">
         <div class="container">
             <div class="row blog-carousel">
-                {% for post in collections.posts %}
+                {%- for post in collections.post -%}
                     <div class="illdy-blog-post col-md-4 col-sm-6 col-xs-12">
                         <div class="post" style="">
 							<div class="post-image" style="background-image: url('https://creating-access.hbculibraries.org/wp-content/uploads/sites/37/2020/11/suam_1259_full-250x213.jpg');"></div>
                         <h5>
-                            <a href="https://creating-access.hbculibraries.org/2022/04/11/clir-and-hbcu-library-alliance-release-study-on-creating-access-to-hbcu-library-alliance-archives/" class="post-title">CLIR and HBCU Library Alliance Release Study on Creating Access to HBCU Library Alliance Archives</a>
+                            <a href="{{ post.url }}" class="post-title">{{ post.data.title }} </a>
                         </h5>
                         <div class="post-entry">
-							April 11, 2022—&nbsp;A new report from CLIR and the HBCU Library Alliance explores the common barriers and shared visions for…									</div>
+							{{ post.data.date }}—&nbsp;A new report from CLIR and the HBCU Library Alliance explores the common barriers and shared visions for…									</div>
                         <!--/.post-entry-->
-                        <a href="https://creating-access.hbculibraries.org/2022/04/11/clir-and-hbcu-library-alliance-release-study-on-creating-access-to-hbcu-library-alliance-archives/" class="post-button">
+                        <a href="{{ post.title }}" class="post-button">
                             <i class="fa fa-chevron-circle-right"></i>Read more</a>
                     </div>
                     <!--/.post-->

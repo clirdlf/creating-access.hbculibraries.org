@@ -1,9 +1,9 @@
 ---
 title: CLIR and HBCU Library Alliance Release Study on Creating Access to HBCU Library Alliance Archives
 date: 2022-04-11
-image:
-attribution:
-author:
+image: suam_1259_full.jpg
+attribution: <a href="https://hbcudigitallibrary.auctr.edu/digital/collection/suam/id/1259/rec/1"><em>Interior Domestic Art Department</em></a>, Unknown Photographer, 1886, Copy print made from glass plate negative. Courtesy of Southern University and A&amp;M College-Archives Department-John B. Cade Library.
+author: Becca Quon
 ---
 
 April 11, 2022— A new report from CLIR and the HBCU Library Alliance explores the common barriers and shared visions for creating access to archival collections held by libraries at Historically Black Colleges and Universities (HBCUs). Chronicling nearly 300 years of the lived experiences and legacies of African Americans, these materials are vital to enriching our understanding of the achievements, influence, and global impact of African American people and communities. Many of these collections, however, remain inaccessible because of constraints in staffing, space, collections, equipment, and other resources.
