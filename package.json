@@ -1,0 +1,44 @@
+{
+  "name": "eleventy-plus-bootstrap",
+  "version": "0.0.1",
+  "browserslist": [
+    "> 0.5%",
+    "not IE 11"
+  ],
+  "scripts": {
+    "start": "eleventy --serve --incremental",
+    "watch": "eleventy --watch",
+    "serve": "eleventy --serve",
+    "bench": "DEBUG=Eleventy:Benchmark* eleventy",
+    "build": "eleventy",
+    "clean": "del-cli _site",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Wayne Graham",
+  "license": "MIT",
+  "description": "A clean and simple Eleventy 2 starter with Bootstrap",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-img": "^4.0.2",
+    "@11ty/eleventy-navigation": "^0.3.5",
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@11ty/eleventy-plugin-vite": "^4.0.0",
+    "autoprefixer": "^10.4.19",
+    "cssnano": "^7.0.1",
+    "del-cli": "^5.1.0",
+    "luxon": "^3.4.4",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.0.1",
+    "markdown-it-attrs": "^4.1.6",
+    "npm-run-all": "^4.1.5",
+    "rollup-plugin-critical": "^1.0.13",
+    "sass": "^1.77.4",
+    "vite": "^5.2.12"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3"
+  }
+}

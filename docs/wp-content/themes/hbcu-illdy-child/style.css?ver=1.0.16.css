@@ -1,0 +1,44 @@
+/*
+ Theme Name:   Illdy Theme Child
+ Theme URI:    http://example.com/twenty-fifteen-child/
+ Description:  Illdy Theme Child for HBCU Library Alliance
+ Author:       Wayne Graham
+ Author URI:   http://www.clir.org
+ Template:     illdy
+ Version:      1.0.2
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags: blog, e-commerce, portfolio
+ Text Domain: illdychild
+*/
+.section-citation {
+  line-height: 26px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  font-size: 16px;
+  font-family: "Lato";
+  font-weight: 400;
+  color: #fff;
+}
+
+.section-citation a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.opaque-background {
+  padding-top: 2em;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.header-opaque-background {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.alignleft {
+  padding-right: 20px;
+}
+
+.alignright {
+  padding-left: 20px;
+}
