@@ -1,32 +1,41 @@
 {%- set image_path = ["/assets/images/", image] | join  %}
 
-<header id="header" class="header-front-page" style="background-image: url({{image_path }});background-attachment: fixed;">
+<header>
+    <!-- Intro settings -->
+    <style>
+        /* Default height for small devices */
+        #intro {
+            height: 500px;
+            background-image: url('{{ image_path | url }}');
+            background-position: center;
+        }
+
+        /* Height for devices larger than 992px */
+        @media (min-width: 992px) {
+            #intro {
+                height: 600px;
+            }
+        }
+    </style>
+
     {% include 'navigation.njk' %}
-    <div class="bottom-header front-page">
-        <div class="container">
-            <div class="row opaque-background">
 
-                <div class="col-sm-12">
-                    <h1></h1>
-                    <h1>{{ title }}<span class="span-dot">.</span></h1>
-                </div>
-                <!--/.col-sm-12-->
-                <div class="col-sm-8 col-sm-offset-2"></div>
-                <!--/.col-sm-8.col-sm-offset-2-->
-                <div class="col-sm-8 col-sm-offset-2">
+    <!-- Background image -->
+    <div id="intro" class="p-5 text-center bg-image h-75">
 
-                    <div class="section-citation">
-                        <a href="https://hbcudigitallibrary.auctr.edu/digital/collection/ssld/id/26/rec/8" target="_blank" rel="noopener noreferrer">
-                            <em>First Honor Students</em>
-                        </a>, Unknown Photographer, 1968, Silver Gelatin. Courtesy of Southern University at Shreveport Library (LA).          </div>
-
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.4);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white">
+                    <h1 class="mb-3 fw-bolder fs-1">{{ title }}
+                        <span class="span-dot">.</span>
+                    </h1>
+                    <div class="col-md-6 mx-auto text-center">
+                        <p>{{ attribution | safe }}</p>
+                    </div>
+                    
                 </div>
             </div>
-            <!--/.row-->
-
         </div>
-        <!--/.container-->
     </div>
-    <!--/.bottom-header.front-page-->
-
+    <!-- Background image -->
 </header>
