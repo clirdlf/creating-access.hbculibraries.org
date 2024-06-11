@@ -1,6 +1,7 @@
 const markdownIt = require('markdown-it')
 const markdownItAttrs = require('markdown-it-attrs')
 const markdownItAnchor = require('markdown-it-anchor')
+const implicitFigures = require('markdown-it-implicit-figures');
 
 const Image = require("@11ty/eleventy-img");
 
@@ -102,16 +103,30 @@ module.exports = function (eleventyConfig) {
     }
   })
 
-  
-
   // Copy/pass-through files
   eleventyConfig.addPassthroughCopy('src/assets/')
 
   // filters
+  eleventyConfig.addFilter("head", (array, n) => {
+		if(!Array.isArray(array) || array.length === 0) {
+			return [];
+		}
+		if( n < 0 ) {
+			return array.slice(n);
+		}
+
+		return array.slice(0, n);
+	});
 
   // Customize Markdown library settings:
   eleventyConfig.amendLibrary('md', (mdLib) => {
     mdLib.use(markdownItAttrs)
+
+    mdLib.use(implicitFigures, {
+      figcaption: true,  // <figcaption>alternative text</figcaption>, default: false
+      lazyLoading: true,
+      copyAttrs: false
+    })
 
     mdLib.use(markdownItAnchor, {
       permalink: markdownItAnchor.permalink.ariaHidden({
@@ -148,6 +163,7 @@ module.exports = function (eleventyConfig) {
       includes: '_includes',
       layouts: '_layouts',
       data: '_data'
-    }
+    },
+    pathPrefix: "/creating-access.hbculibraries.org",
   }
 }

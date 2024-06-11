@@ -2,7 +2,7 @@
 title: Project Partners Seek Focus Group Facilitator and Interviewer for Study on Creating Access to HBCU Archives
 date: 2020-12-04
 image: nccu_50_full.jpg
-attribution: <a href="https://hbcudigitallibrary.auctr.edu/digital/collection/nccu/id/50/rec/1" target="_blank" rel="noopener noreferrer"><em>The NCCU Sound Machine</em></a>, Unknown photographer, 1960, Silver Gelatin Photograph. Courtesy of North Carolina Central University-University Archives-James E. Shepard Memorial Library.
+attribution: <a class="link-light" href="https://hbcudigitallibrary.auctr.edu/digital/collection/nccu/id/50/rec/1" target="_blank" rel="noopener noreferrer"><em>The NCCU Sound Machine</em></a>, Unknown photographer, 1960, Silver Gelatin Photograph. Courtesy of North Carolina Central University-University Archives-James E. Shepard Memorial Library.
 author: Becca Quon
 ---
 

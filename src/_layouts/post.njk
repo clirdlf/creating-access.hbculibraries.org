@@ -2,7 +2,22 @@
 layout: base
 ---
 <div class="container">
-    <article class="mt-5">
+    <div class="row">
+    <article class="mt-5 col-sm-8">
         {{ content | safe }}
     </article>
-</div>
+    <aside class="d-flex mt-5 col-sm-4">
+        <div class="vr"></div>
+        <div class="ms-5">
+            <h2 class="mb-3">Recent Posts</h2>
+            <ul class="list-unstyled ">
+            {%- for post in collections.post | reverse -%}
+                <li class="mb-4">
+                    <a href="{{ post.url | url }}">{{ post.data.title }}</a>
+                </li>
+            {%- endfor %}
+            </ul>
+        </div>
+    </aside>
+    </div>
+</div> 

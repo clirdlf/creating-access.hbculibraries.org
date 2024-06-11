@@ -5,8 +5,10 @@
     <style>
         /* Default height for small devices */
         #intro {
-            height: 500px;
+            min-height: 500px;
             background-image: url('{{ image_path | url }}');
+            background-size: cover;
+            {# background-repeat: no-repeat; #}
             background-position: center;
         }
 
