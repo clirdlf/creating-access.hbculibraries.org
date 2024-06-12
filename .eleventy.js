@@ -63,9 +63,9 @@ module.exports = function (eleventyConfig) {
         // This puts CSS and JS in subfolders – remove if you want all of it to be in /assets instead
         rollupOptions: {
           output: {
-            assetFileNames: 'assets/css/main.[hash].css',
-            chunkFileNames: 'assets/js/[name].[hash].js',
-            entryFileNames: 'assets/js/[name].[hash].js'
+            assetFileNames: 'src/assets/css/main.[hash].css',
+            chunkFileNames: 'srv/assets/js/[name].[hash].js',
+            entryFileNames: 'src/assets/js/[name].[hash].js'
           },
           plugins: [
             rollupPluginCritical({

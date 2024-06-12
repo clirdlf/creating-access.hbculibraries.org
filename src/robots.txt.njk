@@ -1,7 +1,8 @@
 ---
 permalink: /robots.txt
 ---
-Sitemap: {{ '/sitemap.xml' | url }}
+{%- set sitemap_url = [site.url, '/sitemap.xml'] | join  %}
+sitemap: {{ sitemap_url }}
 
 User-agent: *
 Disallow:
