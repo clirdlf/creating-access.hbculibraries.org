@@ -10,10 +10,9 @@ April 11, 2022— A new report from CLIR and the HBCU Library Alliance explores
 
 [_Creating Access to HBCU Library Alliance Archives: Needs, Capacity, and Technical Planning_](https://zenodo.org/records/8273454) is one of few reports that document the needs of HBCU libraries as they relate to archives and special collections. It is based on a series of online focus groups that author Sharon Ferguson Freeman facilitated with HBCU library directors and deans in 2021. The study provides insight into the significance of special and archival collections for HBCU librar­ies and their communities; the management and capacity of archives and special collections; and these libraries’ values, priorities, needs, and aspirations. The findings also reveal information related to the impact of the COVID-19 pandemic on HBCUs and broader topics of significance that were not anticipated when the project began. 
 
-<figure class="figure">
-    {% image "../assets/images/Pub-180-cover.png", 'Creating Access to HBCU Library Alliance Archives', 'figure-img rounded' %}
-    <figcaption class="figure-caption"><em>Creating Access to HBCU Library Alliance Archives</figcaption>
-</figure>
+{% image "../assets/images/Pub-180-cover.png", 'Creating Access to HBCU Library Alliance Archives', 'img img-thumbnail shadow m-3' %}
+
+
 
 The desire for additional staff, adequate space, digitization of collections, and expansion of collections emerged as key priorities among the focus group participants. Participants also expressed the wish for an endowment to be used exclusively to support archives and special collections. 
 

@@ -1,23 +1,18 @@
+const path = require('path');
+const { resolve } = require('path')
+// markdownit additions
 const markdownIt = require('markdown-it')
 const markdownItAttrs = require('markdown-it-attrs')
 const markdownItAnchor = require('markdown-it-anchor')
 const implicitFigures = require('markdown-it-implicit-figures');
 
-const Image = require("@11ty/eleventy-img");
+const striptags = require('striptags')
 
 const EleventyPluginNavigation = require('@11ty/eleventy-navigation')
 const EleventyPluginRss = require('@11ty/eleventy-plugin-rss')
-const EleventyPluginSyntaxhighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
-const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite')
-
-const rollupPluginCritical = require('rollup-plugin-critical').default
-
-const { resolve } = require('path')
-
-const striptags = require('striptags')
+const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 
 const pluginImages = require("./eleventy.images.js");
-
 
 function extractExcerpt(article) {
   if (!article.hasOwnProperty('templateContent')) {
@@ -38,75 +33,51 @@ function extractExcerpt(article) {
   return excerpt
 }
 
-module.exports = function (eleventyConfig) {
-  eleventyConfig.addPlugin(pluginImages);
-  eleventyConfig.addPlugin(EleventyPluginNavigation)
-  eleventyConfig.addPlugin(EleventyPluginRss)
-  eleventyConfig.addPlugin(EleventyPluginSyntaxhighlight)
-  eleventyConfig.addPlugin(EleventyVitePlugin, {
-    tempFolderName: '.11ty-vite', // Default name of the temp folder
+module.exports = function(eleventyConfig) {
+    eleventyConfig.addPassthroughCopy("src/assets/");
 
-    // Vite options (equal to vite.config.js inside project root)
-    viteOptions: {
-      publicDir: 'public',
-      clearScreen: false,
-      server: {
-        mode: 'development',
-        middlewareMode: true
-      },
-      appType: 'custom',
-      assetsInclude: ['**/*.xml', '**/*.txt'],
-      build: {
-        mode: 'production',
-        sourcemap: 'true',
-        manifest: true,
-        // This puts CSS and JS in subfolders – remove if you want all of it to be in /assets instead
-        rollupOptions: {
-          output: {
-            assetFileNames: 'src/assets/css/main.[hash].css',
-            chunkFileNames: 'srv/assets/js/[name].[hash].js',
-            entryFileNames: 'src/assets/js/[name].[hash].js'
+    eleventyConfig.addPlugin(pluginImages);
+    eleventyConfig.addPlugin(EleventyPluginNavigation)
+    eleventyConfig.addPlugin(EleventyPluginRss)
+
+    eleventyConfig.addPlugin(EleventyVitePlugin, {
+      tempFolderName: ".11ty-vite", // Default name of the temp folder
+
+      root: path.resolve(__dirname, "src"),
+  
+      // Options passed to the Eleventy Dev Server
+      // e.g. domdiff, enabled, etc.
+  
+      // Added in Vite plugin v2.0.0
+      serverOptions: {},
+  
+      // Defaults are shown:
+      viteOptions: {
+        clearScreen: false,
+        appType: "mpa", // New in v2.0.0
+        assetsInclude: ['**/*.xml', '**/*.txt'],
+        
+        server: {
+          mode: "development",
+          middlewareMode: true,
+        },
+  
+        build: {
+          mode: "production",
+        },
+  
+        // New in v2.0.0
+        resolve: {
+          alias: {
+            // Allow references to `node_modules` folder directly
+            "/node_modules": path.resolve(".", "node_modules"),
+            "~bootstrap": path.resolve(__dirname, "node_modules/bootstrap"),
           },
-          plugins: [
-            rollupPluginCritical({
-              criticalUrl: './_site/',
-              criticalBase: './_site/',
-              criticalPages: [
-                { uri: 'index.html', template: 'index' }
-                // { uri: 'posts/index.html', template: 'posts/index' },
-                // { uri: '404.html', template: '404' },
-              ],
-              criticalConfig: {
-                inline: true,
-                dimensions: [
-                  {
-                    height: 900,
-                    width: 375
-                  },
-                  {
-                    height: 720,
-                    width: 1280
-                  },
-                  {
-                    height: 1080,
-                    width: 1920
-                  }
-                ],
-                penthouse: {
-                  // forceInclude: ['.fonts-loaded-1 body', '.fonts-loaded-2 body'],
-                }
-              }
-            })
-          ]
-        }
-      }
-    }
-  })
+        },
+      },
+    });
 
-  // Copy/pass-through files
-  eleventyConfig.addPassthroughCopy('src/assets/')
-
-  // filters
+    // filters
   eleventyConfig.addFilter("head", (array, n) => {
 		if(!Array.isArray(array) || array.length === 0) {
 			return [];
@@ -148,22 +119,22 @@ module.exports = function (eleventyConfig) {
     return markdownItRenderer.render(str)
   })
 
-  // shortcodes
-  //https://dev.to/jonoyeong/excerpts-with-eleventy-4od8
-  	eleventyConfig.addShortcode('excerpt', (article) => extractExcerpt(article))
+    // shortcodes
+    //https://dev.to/jonoyeong/excerpts-with-eleventy-4od8
+    eleventyConfig.addShortcode('excerpt', (article) => extractExcerpt(article))
 
-  return {
-    templateFormats: ['md', 'njk', 'html', 'liquid'],
-    htmlTemplateEngine: 'njk',
-    passthroughFileCopy: true,
-    dir: {
-      input: 'src',
-      // better not use "public" as the name of the output folder (see above...)
-      output: '_site',
-      includes: '_includes',
-      layouts: '_layouts',
-      data: '_data'
-    },
-    pathPrefix: "/creating-access.hbculibraries.org",
-  }
-}
+    return {
+        dir: {
+          input: "src",
+          output: "_site",
+          includes: "_includes", // this path is releative to input-path (src/)
+          layouts: "_layouts", // this path is releative to input-path (src/)
+          data: "_data", // this path is releative to input-path (src/)
+        },
+        templateFormats: ["njk", "md"],
+        htmlTemplateEngine: "njk",
+        markdownTemplateEngine: "njk",
+        // important for github pages build (subdirectory):
+        pathPrefix: '/'
+      };
+};

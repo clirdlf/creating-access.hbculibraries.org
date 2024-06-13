@@ -1,0 +1,16 @@
+[
+    
+    {
+        "title": "Home",
+        "url": "/"
+    },
+    {
+        "title": "Project Team",
+        "url": "/project-team/"
+    },
+    {
+        "title": "Publications",
+        "url": "/publications/"
+    }
+    
+]

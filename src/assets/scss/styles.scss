@@ -7,10 +7,8 @@ $red: #D1495B;
 $blue: #22AED1;
 $jet: #2A2825;
 
-// $theme-colors: (
-//   "info": #670062,
-// );
-@import '../node_modules/bootstrap/scss/bootstrap';
+// Import all of Bootstrap's CSS
+@import "~bootstrap/scss/bootstrap";
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
@@ -100,3 +98,5 @@ a {
 .alignright {
   padding-left: 20px;
 }
+
+
