@@ -16,6 +16,6 @@ This project uses [11ty](https://www.11ty.dev/) to generate the site and does a 
 * Open the project in VSCode (`cd creating-access.hbculibraries.org && code .`)
 * Install the dependencies (`npm install`)
 * Start the dev server (`npm start`)
-* View the awesomeness ([http://localhost])
+* View the awesomeness <http://localhost:8080>
 
 Once you have made your changes, push to github and GitHub actions will build the site for production.
