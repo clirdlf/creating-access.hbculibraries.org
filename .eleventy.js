@@ -7,12 +7,15 @@ const markdownItAnchor = require('markdown-it-anchor')
 const implicitFigures = require('markdown-it-implicit-figures');
 
 const striptags = require('striptags')
+const { DateTime } = require('luxon')
 
 const EleventyPluginNavigation = require('@11ty/eleventy-navigation')
 const EleventyPluginRss = require('@11ty/eleventy-plugin-rss')
 const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 
 const pluginImages = require("./eleventy.images.js");
+
+const githubPath = 'creating-access.hbculibraries.org';
 
 function extractExcerpt(article) {
   if (!article.hasOwnProperty('templateContent')) {
@@ -35,6 +38,7 @@ function extractExcerpt(article) {
 
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/assets/");
+    eleventyConfig.addPassthroughCopy("CNAME");
 
     eleventyConfig.addPlugin(pluginImages);
     eleventyConfig.addPlugin(EleventyPluginNavigation)
@@ -42,6 +46,8 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addPlugin(EleventyVitePlugin, {
       tempFolderName: ".11ty-vite", // Default name of the temp folder
+
+      // base: 'creating-access.hbculibraries.org',
 
       root: path.resolve(__dirname, "src"),
   
@@ -53,9 +59,10 @@ module.exports = function(eleventyConfig) {
   
       // Defaults are shown:
       viteOptions: {
+        // base: githubPath,
         clearScreen: false,
         appType: "mpa", // New in v2.0.0
-        assetsInclude: ['**/*.xml', '**/*.txt'],
+        assetsInclude: ['**/*.xml', '**/*.txt', 'CNAME'],
         
         server: {
           mode: "development",
@@ -88,6 +95,13 @@ module.exports = function(eleventyConfig) {
 
 		return array.slice(0, n);
 	});
+
+  eleventyConfig.addFilter("dateToISO", (date) => {
+    return DateTime.fromJSDate(date, { zone: 'utc' }).toISO({
+      includeOffset: false,
+      suppressMilliseconds: true
+    })
+  });
 
   // Customize Markdown library settings:
   eleventyConfig.amendLibrary('md', (mdLib) => {
@@ -123,6 +137,10 @@ module.exports = function(eleventyConfig) {
     //https://dev.to/jonoyeong/excerpts-with-eleventy-4od8
     eleventyConfig.addShortcode('excerpt', (article) => extractExcerpt(article))
 
+    eleventyConfig.addShortcode("currentTime", () => {
+      return DateTime.now().toString();
+    });
+
     return {
         dir: {
           input: "src",
@@ -135,6 +153,6 @@ module.exports = function(eleventyConfig) {
         htmlTemplateEngine: "njk",
         markdownTemplateEngine: "njk",
         // important for github pages build (subdirectory):
-        pathPrefix: '/'
+        // pathPrefix: githubPath
       };
 };

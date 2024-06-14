@@ -2,5 +2,5 @@
 permalink: /public/build.txt
 eleventyExcludeFromCollections: true
 ---
-LAST BUILD: {{ build.timestamp }} 
-ENV:        {{ build.env }}
+LAST BUILD: {% currentTime %} 
+ENV:        {{ build.env}}
