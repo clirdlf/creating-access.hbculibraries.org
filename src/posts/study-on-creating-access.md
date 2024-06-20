@@ -2,6 +2,7 @@
 title: CLIR and HBCU Library Alliance Release Study on Creating Access to HBCU Library Alliance Archives
 date: 2022-04-11
 image: suam_1259_full.jpg
+image_position: center
 attribution: <a class="link-light" href="https://hbcudigitallibrary.auctr.edu/digital/collection/suam/id/1259/rec/1"><em>Interior Domestic Art Department</em></a>, Unknown Photographer, 1886, Copy print made from glass plate negative. Courtesy of Southern University and A&amp;M College-Archives Department-John B. Cade Library.
 author: Becca Quon
 ---

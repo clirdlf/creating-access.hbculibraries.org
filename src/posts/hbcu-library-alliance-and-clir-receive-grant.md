@@ -2,6 +2,8 @@
 title: HBCU Library Alliance and CLIR Receive Grant to Study Feasibility for Large-Scale Survey of HBCU Archives
 date: 2020-11-20
 image: bsdc_3_full-scaled.jpg 
+image_position: 0% 25%
+
 attribution: <a class="link-light" href="https://hbcudigitallibrary.auctr.edu/digital/collection/bsdc/id/3/rec/10" target="_blank" rel="noopener noreferrer"><em>Faculty, Maryland Normal and Industrial School at Bowie</em></a>
 author: Becca Quon
 ---

@@ -8,8 +8,10 @@
             min-height: 500px;
             background-image: url('{{ image_path | url }}');
             background-size: cover;
+            {# background-attachment: fixed; #}
+            {# background-position: '{{ image_position }}'; #}
             {# background-repeat: no-repeat; #}
-            background-position: center;
+            background-position: {{ image_position }};
         }
 
         /* Height for devices larger than 992px */

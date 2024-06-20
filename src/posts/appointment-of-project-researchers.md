@@ -2,6 +2,7 @@
 title: Announcing the Appointment of Project Researchers
 date: 2021-03-11
 image: BCHD_35_full-scaled.jpg
+image_position: center
 attribution: <a class="link-light" target="_blank" href="https://hbcudigitallibrary.auctr.edu/digital/collection/BCHD/id/35/rec/1">1922 Class Bennett College</a>, Unknown Photographer, 1922, Courtesy of Bennett College Library
 author: Becca Quon
 ---
