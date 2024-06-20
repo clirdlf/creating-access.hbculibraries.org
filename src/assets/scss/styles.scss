@@ -6,11 +6,24 @@ $yellow: #EDAE49;
 $red: #D1495B;
 $blue: #22AED1;
 $jet: #2A2825;
+$dark-blue: #222f36;
 
 // Import all of Bootstrap's CSS
 @import "~bootstrap/scss/bootstrap";
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+.bg-blue {
+  background-color: $purple;
+  color: #fff;
+}
+
+#hero-text {
+  // backdrop-filter: blur(6px) saturate(102%);
+  background-color: rgba(0, 0, 0, 0.45);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}
 
 .bg-jet {
   background-color: $jet;
@@ -42,7 +55,7 @@ a {
 }
 
 .bg-dark-blue {
-  background-color: #222f36;
+  background-color: $dark-blue;
 }
 
 .quote {

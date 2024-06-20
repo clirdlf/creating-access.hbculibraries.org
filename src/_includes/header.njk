@@ -5,41 +5,38 @@
     <style>
         /* Default height for small devices */
         #intro {
-            min-height: 500px;
-            background-image: url('{{ image_path | url }}');
+            {# min-height: 500px; #}
+            background-image: url("{{ image_path | url }}");
             background-size: cover;
-            {# background-attachment: fixed; #}
-            {# background-position: '{{ image_position }}'; #}
-            {# background-repeat: no-repeat; #}
-            background-position: {{ image_position }};
+            background-position: {{image_position}};
+            background-repeat:no-repeat
         }
 
-        /* Height for devices larger than 992px */
+        /* Height for devices larger t han 992px */
         @media (min-width: 992px) {
             #intro {
-                height: 600px;
+                min-height: 600px;
             }
         }
     </style>
 
     {% include 'navigation.njk' %}
 
-    <!-- Background image -->
-    <div id="intro" class="p-5 text-center bg-image h-75">
+    <!-- Background Image -->
+    {# https://library.livecanvas.com/sections/hero-with-glassmorphism/ #}
+    <div id="intro" class="container-fluid py-5 d-flex justify-content-center text-white">
+        <div id="hero-text" class="p-5 mb-4 lc-block col-xxl-7 col-lg-8 col-12 text-center">
 
-        <div class="mask" style="background-color: rgba(0, 0, 0, 0.4);">
-            <div class="d-flex justify-content-center align-items-center h-100">
-                <div class="text-white">
-                    <h1 class="mb-3 fw-bolder fs-1">{{ title }}
-                        <span class="span-dot">.</span>
-                    </h1>
-                    <div class="col-md-6 mx-auto text-center">
-                        <p>{{ attribution | safe }}</p>
-                    </div>
-                    
+            <h2 class="fw-bolder display-3 py-3">
+                {{ title }}
+            </h2>
+            
+            <div class="col">
+                <p class="lead mt-5 pt-5">
+                    <p>{{ attribution | safe }}</p>
                 </div>
+
             </div>
         </div>
-    </div>
-    <!-- Background image -->
-</header>
+        <!-- Background image -->
+    </header>
